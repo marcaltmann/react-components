@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Form from './components/form';
+import './variables.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form
+        onSubmit={data => console.log(data)}
+      >
+        <div>
+          <Form.Input
+            id="name"
+            placeholder="Name"
+          />
+        </div>
+        <div>
+          <Form.Input
+            style={{ marginTop: '1rem' }}
+            id="email"
+            type="email"
+            placeholder="Email"
+          />
+        </div>
+        <div>
+          <Form.Input
+            style={{ marginTop: '1rem' }}
+            id="fullname"
+            placeholder="Surname"
+            initialValue={['Marc', 'Altmann']}
+            path="1"
+          />
+        </div>
+        <button type="submit" style={{ marginTop: '1rem' }}>
+          Submit
+        </button>
+      </Form>
     </div>
   );
 }
